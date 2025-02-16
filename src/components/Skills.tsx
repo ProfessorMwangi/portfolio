@@ -1,17 +1,13 @@
 /** @format */
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Loading from "./Loading";
-import { Engine } from "tsparticles-engine";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
-// Import tech-specific icons
 import {
 	SiJavascript,
-	SiGo,
-	SiSolidity,
 	SiPython,
 	SiReact,
 	SiThreedotjs,
@@ -23,6 +19,7 @@ import {
 	SiRust,
 	SiFlask,
 	SiSocketdotio,
+	SiTypescript,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 
@@ -39,34 +36,26 @@ const skills: Skill[] = [
 	{
 		name: "JavaScript",
 		icon: <SiJavascript className='w-8 h-8' />,
-		description: "Modern ES6+, TypeScript, Async Programming",
+		description: "Modern ES6+, Async Programming",
 		status: "mastered",
 		category: "Languages",
 		color: "#F7DF1E",
 	},
 	{
-		name: "Go",
-		icon: <SiGo className='w-8 h-8' />,
-		description: "Backend Development, Concurrency",
-		status: "learning",
-		category: "Languages",
-		color: "#00ADD8",
-	},
-	{
-		name: "Solidity",
-		icon: <SiSolidity className='w-8 h-8' />,
-		description: "Smart Contracts, DeFi Development",
-		status: "learning",
-		category: "Languages",
-		color: "#363636",
-	},
-	{
 		name: "Python",
 		icon: <SiPython className='w-8 h-8' />,
-		description: "Data Science, Automation, Backend",
+		description: "Automation, Backend",
 		status: "mastered",
 		category: "Languages",
 		color: "#3776AB",
+	},
+	{
+		name: "TypeScript",
+		icon: <SiTypescript className='w-8 h-8' />,
+		description: "Strongly Typed Language",
+		status: "mastered",
+		category: "Languages",
+		color: "#007ACC",
 	},
 	{
 		name: "React",
@@ -128,7 +117,7 @@ const skills: Skill[] = [
 		name: "Rust",
 		icon: <SiRust className='w-8 h-8' />,
 		description: "Systems Programming, WebAssembly",
-		status: "mastered",
+		status: "learning",
 		category: "Languages",
 		color: "#000000",
 	},
@@ -144,7 +133,7 @@ const skills: Skill[] = [
 		name: "Actix",
 		icon: <TbBrandReactNative className='w-8 h-8' />,
 		description: "Rust Web Framework, High-Performance Server",
-		status: "mastered",
+		status: "learning",
 		category: "Backend",
 		color: "#DD3B2B",
 	},
@@ -160,12 +149,11 @@ const skills: Skill[] = [
 
 const Skills = () => {
 	const [loading, setLoading] = useState(true);
-	const [selectedCategory, setSelectedCategory] = useState<string | null>(
-		null
-	);
+	const [selectedCategory, setSelectedCategory] =
+		useState<string>("Languages");
+
 	const [init, setInit] = useState(false);
 	const [activeCard, setActiveCard] = useState<number | null>(null);
-	const containerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		initParticlesEngine(async (engine) => {
@@ -244,15 +232,6 @@ const Skills = () => {
 						animate={{ y: 0, opacity: 1 }}
 						transition={{ duration: 0.5, delay: 2.4 }}
 						className='flex flex-wrap justify-center gap-4 mb-12 px-4'>
-						<button
-							onClick={() => setSelectedCategory(null)}
-							className={`px-4 py-2 rounded-full transition-all ${
-								!selectedCategory
-									? "bg-purple-600 text-white"
-									: "bg-gray-800 text-gray-300 hover:bg-gray-700"
-							}`}>
-							All
-						</button>
 						{categories.map((category) => (
 							<button
 								key={category}
@@ -268,7 +247,7 @@ const Skills = () => {
 					</motion.div>
 
 					<div className='container mx-auto px-4'>
-						<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000'>
+						<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 perspective-1000'>
 							<AnimatePresence mode='wait'>
 								{filteredSkills.map((skill, index) => (
 									<motion.div
@@ -298,8 +277,7 @@ const Skills = () => {
 											<div className='card-front'>
 												<div
 													className='relative h-full bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 
-                                   transform transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/10 
-                                   group overflow-hidden'>
+                                  transform transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/10 group overflow-hidden'>
 													<div
 														className='absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 
                                         opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl'
@@ -309,7 +287,7 @@ const Skills = () => {
 														<div className='flex items-center justify-between mb-4'>
 															<div
 																className='p-4 rounded-lg transform transition-transform duration-300 group-hover:scale-110 
-                                         hover:rotate-12'
+                                        hover:rotate-12'
 																style={{
 																	backgroundColor: `${skill.color}20`,
 																}}>
@@ -328,7 +306,7 @@ const Skills = () => {
 																"learning" && (
 																<span
 																	className='px-3 py-1 text-xs rounded-full bg-purple-500/20 text-purple-300 
-                                               border border-purple-500/30'>
+                                              border border-purple-500/30'>
 																	Learning in
 																	Progress
 																</span>
@@ -337,7 +315,7 @@ const Skills = () => {
 
 														<h3
 															className='text-2xl font-bold mb-3 text-white group-hover:text-purple-400 
-                                         transition-colors'>
+                                        transition-colors'>
 															{skill.name}
 														</h3>
 														<p className='text-gray-400 text-sm flex-grow'>
@@ -347,7 +325,7 @@ const Skills = () => {
 														<div className='mt-4'>
 															<span
 																className='px-3 py-1.5 text-sm rounded-md bg-gray-700/50 text-gray-300 
-                                             inline-block'>
+                                            inline-block'>
 																{skill.category}
 															</span>
 														</div>
@@ -363,7 +341,7 @@ const Skills = () => {
 											<div className='card-back'>
 												<div
 													className='h-full bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border 
-                                     border-gray-700/50'>
+                                    border-gray-700/50'>
 													<div className='h-full flex flex-col justify-center items-center text-center'>
 														<div className='mb-6 transform hover:scale-110 transition-transform'>
 															{React.cloneElement(
@@ -400,7 +378,7 @@ const Skills = () => {
 														</p>
 														<button
 															className='mt-4 px-6 py-2 rounded-full bg-purple-600 text-white 
-                                       hover:bg-purple-500 transition-colors'
+                                      hover:bg-purple-500 transition-colors'
 															onClick={(e) => {
 																e.stopPropagation();
 																setActiveCard(

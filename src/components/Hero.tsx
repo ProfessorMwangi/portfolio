@@ -7,7 +7,6 @@ import gsap from "gsap";
 import { motion } from "framer-motion";
 import * as THREE from "three";
 import { TextPlugin } from "gsap/TextPlugin";
-import Skills from "./Skills";
 gsap.registerPlugin(TextPlugin);
 
 const HeroText = () => {

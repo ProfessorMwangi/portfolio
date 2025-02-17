@@ -52,15 +52,15 @@ const Navbar = () => {
 						? "bg-black/80 backdrop-blur-lg"
 						: "bg-transparent"
 				}`}>
-				<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+				<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-Monte'>
 					<div className='flex items-center justify-between h-16'>
 						<motion.div
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							transition={{ delay: 0.2 }}
 							className='flex-shrink-0'>
-							<span className='text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text '>
-								VM
+							<span className='font-Glitch text-2xl bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text '>
+								Victor Mwangi
 							</span>
 						</motion.div>
 

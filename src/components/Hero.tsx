@@ -9,7 +9,7 @@ import * as THREE from "three";
 import { TextPlugin } from "gsap/TextPlugin";
 gsap.registerPlugin(TextPlugin);
 
-const HeroText = () => {
+const HeroText = ({ scaleFactor }) => {
 	const textRefs = {
 		intro: useRef<THREE.Mesh>(null),
 		name: useRef<THREE.Mesh>(null),
@@ -94,9 +94,9 @@ const HeroText = () => {
 			{/* "Hi, my name is" */}
 			<Text
 				ref={textRefs.intro}
-				fontSize={0.3}
+				fontSize={0.3 * scaleFactor}
 				color='#ffffff'
-				position={[0, 2, 0]}
+				position={[0, 2 * scaleFactor, 0]}
 				font='/fonts/Poppins-Regular.ttf'
 				textAlign='center'>
 				Hi, my name is
@@ -105,9 +105,9 @@ const HeroText = () => {
 			{/* "Victor Mwangi" */}
 			<Text
 				ref={textRefs.name}
-				fontSize={0.7}
+				fontSize={0.7 * scaleFactor}
 				color='#00ffcc'
-				position={[0, 1.3, 0]}
+				position={[0, 1.3 * scaleFactor, 0]}
 				font='/fonts/LobsterTwo-Regular.ttf'
 				textAlign='center'>
 				Victor Mwangi
@@ -116,9 +116,9 @@ const HeroText = () => {
 			{/* "Software Engineer" */}
 			<Text
 				ref={textRefs.title}
-				fontSize={0.7}
+				fontSize={0.7 * scaleFactor}
 				color='#ffcc00'
-				position={[0, 0.5, 0]}
+				position={[0, 0.5 * scaleFactor, 0]}
 				font='/fonts/Rajdhani-Regular.ttf'
 				textAlign='center'>
 				Software Engineer | Full-Stack Developer
@@ -127,12 +127,12 @@ const HeroText = () => {
 			{/* Description */}
 			<Text
 				ref={textRefs.description}
-				fontSize={0.25}
+				fontSize={0.25 * scaleFactor}
 				color='#ffffff'
-				position={[0, -0.8, 0]}
+				position={[0, -0.8 * scaleFactor, 0]}
 				lineHeight={1.5}
 				font='/fonts/Inter-Regular.ttf'
-				maxWidth={9}
+				maxWidth={9 * scaleFactor}
 				textAlign='center'>
 				I design and develop scalable applications, fine-tune
 				performance, and craft efficient solutions to complex
@@ -143,6 +143,7 @@ const HeroText = () => {
 		</>
 	);
 };
+
 const ParticleBackground = () => {
 	return (
 		<>
@@ -180,12 +181,10 @@ const ParticleBackground = () => {
 	);
 };
 
-
-
 // 3D Scene
-const Scene = () => {
+const Scene = ({ scaleFactor }) => {
 	return (
-		<Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
+		<Canvas camera={{ position: [0, 0, 10 * scaleFactor], fov: 50 }}>
 			<ambientLight intensity={0.5} />
 			<pointLight
 				position={[10, 10, 10]}
@@ -193,14 +192,30 @@ const Scene = () => {
 				color='#ffffff'
 			/>
 			<ParticleBackground />
-			<HeroText />
-			
+			<HeroText scaleFactor={scaleFactor} />
 		</Canvas>
 	);
 };
 
 const HeroSection = () => {
+	const [scaleFactor, setScaleFactor] = useState(1);
 
+	useEffect(() => {
+		const handleResize = () => {
+			const width = window.innerWidth;
+			if (width < 768) {
+				setScaleFactor(0.6); // Mobile
+			} else if (width < 1024) {
+				setScaleFactor(0.8); // Tablet
+			} else {
+				setScaleFactor(1); // Desktop
+			}
+		};
+
+		handleResize(); // Initial call
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
 
 	return (
 		<motion.div
@@ -214,7 +229,7 @@ const HeroSection = () => {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 1 }}>
-			<Scene />
+			<Scene scaleFactor={scaleFactor} />
 			<motion.div
 				style={{
 					position: "absolute",
@@ -222,7 +237,7 @@ const HeroSection = () => {
 					left: "50%",
 					transform: "translateX(-50%)",
 					color: "#ffffff",
-					fontSize: "1.2rem",
+					fontSize: `${1.2 * scaleFactor}rem`,
 				}}
 				initial={{ y: 20, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}

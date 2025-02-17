@@ -6,12 +6,9 @@ import {
 	Github,
 	Linkedin,
 	Mail,
-	Twitter,
-	Instagram,
 	Send,
 	MapPin,
 	Phone,
-	AlertCircle,
 } from "lucide-react";
 
 const Footer = () => {
@@ -45,12 +42,7 @@ const Footer = () => {
 			href: "#",
 			label: "LinkedIn",
 		},
-		{ icon: <Twitter className='w-5 h-5' />, href: "#", label: "Twitter" },
-		{
-			icon: <Instagram className='w-5 h-5' />,
-			href: "#",
-			label: "Instagram",
-		},
+
 		{ icon: <Mail className='w-5 h-5' />, href: "#", label: "Email" },
 	];
 
@@ -62,17 +54,17 @@ const Footer = () => {
 	];
 
 	return (
-		<footer className='relative bg-black border-t border-gray-800'>
+		<footer className='relative bg-black border-t border-gray-800 font-Monte'>
 			<div className='absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]' />
 
 			<div className='relative z-10'>
 				{/* Main Footer Content */}
 				<div className='container mx-auto px-4 py-12'>
-					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+					<div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
 						{/* Brand Section */}
 						<div className='space-y-4'>
-							<h3 className='text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text'>
-								VM
+							<h3 className='text-2xl font-Glitch bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text'>
+								Victor Mwangi
 							</h3>
 							<p className='text-gray-400 max-w-xs'>
 								Crafting digital experiences through innovative
@@ -124,11 +116,11 @@ const Footer = () => {
 								</li>
 								<li className='flex items-center space-x-3 text-gray-400'>
 									<Phone className='w-5 h-5 text-purple-400' />
-									<span>+254 123 456 789</span>
+									<span>+254 700505443</span>
 								</li>
 								<li className='flex items-center space-x-3 text-gray-400'>
 									<Mail className='w-5 h-5 text-purple-400' />
-									<span>contact@victormwangi.dev</span>
+									<span>mwangivictor929@gmail.com</span>
 								</li>
 							</ul>
 						</div>
@@ -200,18 +192,7 @@ const Footer = () => {
 								© {new Date().getFullYear()} Victor Mwangi. All
 								rights reserved.
 							</p>
-							<div className='flex space-x-4 mt-4 md:mt-0'>
-								<a
-									href='#'
-									className='text-gray-400 hover:text-purple-400 text-sm transition-colors'>
-									Privacy Policy
-								</a>
-								<a
-									href='#'
-									className='text-gray-400 hover:text-purple-400 text-sm transition-colors'>
-									Terms of Service
-								</a>
-							</div>
+							
 						</div>
 					</div>
 				</div>

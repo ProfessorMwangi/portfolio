@@ -17,25 +17,24 @@ const Projects = () => {
 		gsap.from(titleRef.current, {
 			scrollTrigger: {
 				trigger: titleRef.current,
-				start: "top 85%", 
+				start: "top 80%",
 				end: "bottom 20%",
 				toggleActions: "play none none reverse",
 			},
-			y: 50, 
+			y: 50,
 			opacity: 0,
 			duration: 1,
 			ease: "power3.out",
-			
 		});
 
 		gsap.from(".project-card", {
 			scrollTrigger: {
 				trigger: ".projects-grid",
-				start: "top 90%", 
+				start: "top 90%",
 				end: "bottom 30%",
 				toggleActions: "play none none reverse",
 			},
-			y: 60, 
+			y: 60,
 			opacity: 0,
 			stagger: 0.15,
 			duration: 1.5,
@@ -64,7 +63,7 @@ const Projects = () => {
 			description:
 				"Machine learning platform for real-time HFT trading and predictive analytics.",
 			image: "https://images.unsplash.com/photo-1518932945647-7a1c969f8be2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
-			tech: [ "Python", "Rust"],
+			tech: ["Python", "Rust"],
 			github: "#",
 			live: "#",
 		},
@@ -73,25 +72,32 @@ const Projects = () => {
 			description:
 				"Full-stack e-commerce solution with real-time inventory management and payment processing.",
 			image: "https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
-			tech: ["React", "Node.js", "MongoDB", "M-pesa"],
+			tech: ["React", "Node.js", "MongoDB", "M-pesa", "RabbitMQ"],
 			github: "#",
 			live: "#",
 		},
 		{
-			title: "Social Network",
+			title: "Gig Platform",
 			description:
-				"Real-time social platform with video streaming and instant messaging capabilities.",
-			image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
-			tech: ["React", "WebRTC", "Firebase", "Socket.IO"],
-			github: "#",
-			live: "#",
+				"Full-stack job board with real-time search and filtering capabilities.",
+			image: "https://images.unsplash.com/photo-1577100078641-e92b0a906760?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			tech: [
+				"React",
+				"Node.js",
+				"MongoDB",
+				"PostgreSQL",
+				"Stripe",
+				"M-pesa",
+			],
+			github: "https://github.com/ProfessorMwangi/medrin-jobs-frontend-v3",
+			live: "https://medrin-jobs-frontend.vercel.app/",
 		},
 	];
 
 	return (
 		<div
 			ref={projectsRef}
-			className='min-h-screen bg-gradient-to-b from-black to-gray-900 py-20 relative overflow-hidden'>
+			className='font-Monte min-h-screen bg-gradient-to-b from-black to-gray-900 py-20 relative overflow-hidden'>
 			{/* Background Grid */}
 			<div className='absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:100px_100px] [transform-origin:0_0] [-webkit-mask-image:linear-gradient(black,transparent)]' />
 
@@ -99,7 +105,7 @@ const Projects = () => {
 				<h2
 					ref={titleRef}
 					className='text-5xl md:text-7xl font-bold text-center mb-16'>
-					<span className='bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500'>
+					<span className='bg-clip-text font-Quick text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500'>
 						Featured Projects
 					</span>
 				</h2>
@@ -120,10 +126,10 @@ const Projects = () => {
 								<div className='absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90' />
 
 								<div className='absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-500'>
-									<h3 className='text-2xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors'>
+									<h3 className='font-Quick text-2xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors'>
 										{project.title}
 									</h3>
-									<p className='text-gray-300 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500'>
+									<p className='text-gray-100 mb-4 opacity-0 group-hover:opacity-300 transition-opacity duration-500'>
 										{project.description}
 									</p>
 

@@ -63,7 +63,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-20 overflow-hidden">
+    <section id="contact" className="relative py-20 overflow-hidden font-Monte">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-purple-600/10 rounded-full filter blur-[100px] animate-pulse" />
@@ -78,7 +78,7 @@ const Contact = () => {
           className="max-w-3xl mx-auto text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+            <span className="bg-clip-text font-Quick text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
               Get in Touch
             </span>
           </h2>

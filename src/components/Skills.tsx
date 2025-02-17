@@ -216,13 +216,13 @@ const Skills = () => {
 					/>
 				)}
 
-				<div className='relative z-10'>
+				<div className='relative z-10 font-Monte '>
 					<motion.h2
 						initial={{ y: 20, opacity: 0 }}
 						animate={{ y: 0, opacity: 1 }}
 						transition={{ duration: 0.5, delay: 2.2 }}
 						className='text-5xl md:text-7xl font-bold text-center mb-16'>
-						<span className='bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500'>
+						<span className='bg-clip-text font-Quick text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 '>
 							Technical Arsenal
 						</span>
 					</motion.h2>

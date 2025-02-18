@@ -16,7 +16,10 @@ html {
   --font-Glitch: "Rubik Glitch", cursive;
   --font-Monte: "Montserrat", sans-serif;
   --font-Quick: "Quicksand", sans-serif;
+  --breakpoint-xs:320px;
+
 }
+
 @layer base {
   body {
     @apply bg-black text-white overflow-x-hidden;

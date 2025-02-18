@@ -27,6 +27,7 @@ const Footer = () => {
 			await new Promise((resolve) => setTimeout(resolve, 1000));
 			setSubscribeStatus("success");
 			setEmail("");
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		} catch (error) {
 			setSubscribeStatus("error");
 		} finally {

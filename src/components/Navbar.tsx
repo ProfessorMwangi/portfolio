@@ -32,10 +32,14 @@ const Navbar = () => {
 	];
 
 	const socialLinks = [
-		{ icon: <Github className='w-5 h-5' />, href: "#", label: "GitHub" },
+		{
+			icon: <Github className='w-5 h-5' />,
+			href: "https://github.com/ProfessorMwangi",
+			label: "GitHub",
+		},
 		{
 			icon: <Linkedin className='w-5 h-5' />,
-			href: "#",
+			href: "https://www.linkedin.com/in/victor-mwangi-9b5667317/",
 			label: "LinkedIn",
 		},
 		{ icon: <Mail className='w-5 h-5' />, href: "#", label: "Email" },

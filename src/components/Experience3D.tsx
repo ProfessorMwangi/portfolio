@@ -1,17 +1,19 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /** @format */
 
 import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Text3D, Center } from "@react-three/drei";
-import * as THREE from "three";
 
 const FloatingText = () => {
-	const textRef = useRef<THREE.Mesh>(null);
+	const textRef = useRef(null);
 
 	useFrame(({ clock }) => {
 		if (textRef.current) {
+			// @ts-ignore
 			textRef.current.rotation.y =
 				Math.sin(clock.getElapsedTime() * 0.5) * 0.2;
+			// @ts-ignore
 			textRef.current.position.y = Math.sin(clock.getElapsedTime()) * 0.2;
 		}
 	});

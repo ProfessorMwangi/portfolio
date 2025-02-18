@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /** @format */
 
 import { useRef, useEffect, useState } from "react";
@@ -5,20 +6,20 @@ import { Canvas } from "@react-three/fiber";
 import { Text, Stars, Sparkles } from "@react-three/drei";
 import gsap from "gsap";
 import { motion } from "framer-motion";
-import * as THREE from "three";
 import { TextPlugin } from "gsap/TextPlugin";
 gsap.registerPlugin(TextPlugin);
 
-const HeroText = ({ scaleFactor }) => {
+const HeroText = ({ scaleFactor }: { scaleFactor: number }) => {
 	const textRefs = {
-		intro: useRef<THREE.Mesh>(null),
-		name: useRef<THREE.Mesh>(null),
-		title: useRef<THREE.Mesh>(null),
-		description: useRef<THREE.Mesh>(null),
+		intro: useRef(null),
+		name: useRef(null),
+		title: useRef(null),
+		description: useRef(null),
 	};
 
 	useEffect(() => {
 		const tl = gsap.timeline();
+		// @ts-ignore
 		tl.from(textRefs.intro.current?.scale, {
 			x: 0,
 			y: 0,
@@ -26,8 +27,8 @@ const HeroText = ({ scaleFactor }) => {
 			duration: 1.8,
 			ease: "elastic.out(1, 0.5)",
 		});
-
 		tl.from(
+			// @ts-ignore
 			textRefs.name.current?.scale,
 			{
 				x: 0,
@@ -38,7 +39,7 @@ const HeroText = ({ scaleFactor }) => {
 			},
 			"-=0.5"
 		);
-
+		//@ts-ignore
 		gsap.to(textRefs.name.current?.matrix, {
 			y: Math.PI * 2,
 			duration: 3,
@@ -47,6 +48,7 @@ const HeroText = ({ scaleFactor }) => {
 		});
 
 		tl.from(
+			// @ts-ignore
 			textRefs.title.current?.scale,
 			{
 				x: 0,
@@ -59,6 +61,7 @@ const HeroText = ({ scaleFactor }) => {
 		);
 
 		gsap.to(textRefs.title.current, {
+			// @ts-ignore
 			color: ["#ffcc00", "#ff0000", "#00ffcc", "#ffffff"],
 			duration: 2,
 			repeat: -1,
@@ -67,12 +70,13 @@ const HeroText = ({ scaleFactor }) => {
 		});
 
 		tl.from(
+			// @ts-ignore
 			textRefs.description.current?.scale,
 			{
 				x: 0,
 				y: 0,
 				z: 0,
-				duration: 1.5,
+				duration: 1.8,
 				ease: "back.out(1.7)",
 			},
 			"-=0.8"
@@ -80,9 +84,10 @@ const HeroText = ({ scaleFactor }) => {
 
 		const descriptionText = textRefs.description.current;
 		if (descriptionText) {
+			// @ts-ignore
 			gsap.to(descriptionText.children, {
 				y: 20,
-				duration: 1,
+				duration: 1.8,
 				stagger: 0.05,
 				ease: "power3.out",
 			});
@@ -182,7 +187,7 @@ const ParticleBackground = () => {
 };
 
 // 3D Scene
-const Scene = ({ scaleFactor }) => {
+const Scene = ({ scaleFactor }: { scaleFactor: number }) => {
 	return (
 		<Canvas camera={{ position: [0, 0, 10 * scaleFactor], fov: 50 }}>
 			<ambientLight intensity={0.5} />
@@ -204,15 +209,15 @@ const HeroSection = () => {
 		const handleResize = () => {
 			const width = window.innerWidth;
 			if (width < 768) {
-				setScaleFactor(0.6); // Mobile
+				setScaleFactor(0.6);
 			} else if (width < 1024) {
-				setScaleFactor(0.8); // Tablet
+				setScaleFactor(0.8);
 			} else {
-				setScaleFactor(1); // Desktop
+				setScaleFactor(1);
 			}
 		};
 
-		handleResize(); // Initial call
+		handleResize();
 		window.addEventListener("resize", handleResize);
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);

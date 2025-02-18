@@ -202,7 +202,7 @@ const Skills = () => {
 
 	return (
 		<>
-			<AnimatePresence>{loading && <Loading />}</AnimatePresence>
+			<AnimatePresence mode="popLayout">{loading && <Loading />}</AnimatePresence>
 
 			<motion.div
 				initial={{ opacity: 0 }}
@@ -221,7 +221,7 @@ const Skills = () => {
 						initial={{ y: 20, opacity: 0 }}
 						animate={{ y: 0, opacity: 1 }}
 						transition={{ duration: 0.5, delay: 2.2 }}
-						className='text-5xl md:text-7xl font-bold text-center mb-16'>
+						className='text-5xl md:text-7xl sm:text-5xl font-bold text-center mb-16'>
 						<span className='bg-clip-text font-Quick text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 '>
 							Technical Arsenal
 						</span>
@@ -231,7 +231,7 @@ const Skills = () => {
 						initial={{ y: 20, opacity: 0 }}
 						animate={{ y: 0, opacity: 1 }}
 						transition={{ duration: 0.5, delay: 2.4 }}
-						className='flex flex-wrap justify-center gap-4 mb-12 px-4'>
+						className='flex flex-wrap justify-center gap-4 mb-12 px-4 sm:text-sm sm:mb-8'>
 						{categories.map((category) => (
 							<button
 								key={category}

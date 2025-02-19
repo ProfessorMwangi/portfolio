@@ -1,65 +1,15 @@
 /** @format */
 
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
 import { motion } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Github, ExternalLink } from "lucide-react";
-gsap.registerPlugin(ScrollTrigger);
+import { useState } from "react";
 
 const Projects = () => {
-	const projectsRef = useRef(null);
-	const titleRef = useRef(null);
-
-	useGSAP(() => {
-		if (!titleRef.current || !projectsRef.current) return;
-
-		gsap.fromTo(
-			titleRef.current,
-			{
-				y: 50,
-				opacity: 0,
-			},
-			{
-				y: 0,
-				opacity: 1,
-				duration: 1,
-				ease: "power3.out",
-				scrollTrigger: {
-					trigger: titleRef.current,
-					start: "top 100%",
-					end: "bottom 20%",
-					scrub: true,
-					markers: true,
-				},
-			}
-		);
-
-		gsap.fromTo(
-			projectsRef.current,
-			{
-				y: 50,
-				opacity: 0,
-			},
-			{
-				y: 0,
-				opacity: 1,
-				duration: 1,
-				ease: "power3.out",
-				scrollTrigger: {
-					trigger: projectsRef.current,
-					start: "top 75%",
-					end: "bottom 20%",
-					scrub: true,
-				},
-			}
-		);
-	});
+	const [isOpen, setIsOpen] = useState(false);
 
 	const projects = [
 		{
-			title: "AI-PowereHFT Trading",
+			title: "AI-Powered HFT Trading",
 			description:
 				"Machine learning platform for real-time HFT trading and predictive analytics.",
 			image: "https://www.waterstechnology.com/sites/default/files/styles/landscape_750_463/public/2023-11/GettyImages-1393224925.jpg.webp?itok=kcpLIMQr",
@@ -104,27 +54,30 @@ const Projects = () => {
 	];
 
 	return (
-		<div
-			ref={projectsRef}
-			className='font-Monte min-h-screen bg-gradient-to-b from-black to-gray-900 py-20 relative overflow-hidden'>
+		<div className='font-Monte min-h-screen bg-gradient-to-b from-black to-gray-900 py-20 relative overflow-hidden'>
 			<div className='absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:100px_100px] [transform-origin:0_0] [-webkit-mask-image:linear-gradient(black,transparent)]' />
 
 			<div className='container mx-auto px-4 relative z-10'>
-				<h2
-					ref={titleRef}
-					className='text-5xl md:text-7xl font-bold text-center mb-16'>
+				<motion.h2
+					initial={{ y: 20, opacity: 0 }}
+					animate={{ y: 0, opacity: 1 }}
+					transition={{ duration: 0.5, delay: 2.2 }}
+					className='text-[33px] md:text-7xl font-bold text-center mb-8 md:mb-16 lg:mb-16'>
 					<span className='bg-clip-text font-Quick text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500'>
 						Featured Projects
 					</span>
-				</h2>
+				</motion.h2>
 
-				<div className='projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8'>
+				<div className='projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
 					{projects.map((project, index) => (
 						<motion.div
 							key={index}
 							className='project-card group relative overflow-hidden rounded-xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50'
 							whileHover={{ scale: 1.02 }}
-							transition={{ type: "spring", stiffness: 100 }}>
+							initial={{ opacity: 0, y: 50 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, amount: 0.2 }}
+							transition={{ duration: 1, ease: "easeOut" }}>
 							<div className='relative h-[400px] overflow-hidden'>
 								<img
 									src={project.image}
@@ -133,11 +86,26 @@ const Projects = () => {
 								/>
 								<div className='absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90' />
 
-								<div className='absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-500'>
-									<h3 className='font-Quick text-2xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors'>
+								<div
+									className={`absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-500 ${
+										isOpen
+											? "translate-y-0"
+											: "translate-y-10"
+									}`}
+									onClick={() => setIsOpen(!isOpen)} // Toggle on click
+								>
+									<h3
+										className={`font-Quick text-2xl font-bold text-white mb-2 transition-colors ${
+											isOpen
+												? "text-purple-400"
+												: "text-white"
+										}`}>
 										{project.title}
 									</h3>
-									<p className='text-gray-100 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500'>
+									<p
+										className={`text-gray-100 mb-4 transition-opacity duration-500 ${
+											isOpen ? "opacity-100" : "opacity-0"
+										}`}>
 										{project.description}
 									</p>
 
@@ -151,7 +119,10 @@ const Projects = () => {
 										))}
 									</div>
 
-									<div className='flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500'>
+									<div
+										className={`flex gap-4 transition-opacity duration-500 ${
+											isOpen ? "opacity-100" : "opacity-0"
+										}`}>
 										<a
 											href={project.github}
 											className='text-white hover:text-purple-400 transition-colors flex items-center gap-2'

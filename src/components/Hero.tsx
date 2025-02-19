@@ -3,10 +3,13 @@
 
 import { useRef, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Text, Stars, Sparkles } from "@react-three/drei";
+import { Text, Stars, Sparkles, Html } from "@react-three/drei";
 import gsap from "gsap";
 import { motion } from "framer-motion";
 import { TextPlugin } from "gsap/TextPlugin";
+import TextTransition, { presets } from "react-text-transition";
+import { useGSAP } from "@gsap/react";
+
 gsap.registerPlugin(TextPlugin);
 
 const HeroText = ({ scaleFactor }: { scaleFactor: number }) => {
@@ -17,9 +20,17 @@ const HeroText = ({ scaleFactor }: { scaleFactor: number }) => {
 		description: useRef(null),
 	};
 
-	useEffect(() => {
+	const textTransitionRef = useRef(null);
+const [showText, setShowText] = useState(false);
+
+	const isSmallScreen = window.innerWidth < 400;
+	const TEXTS = ["Software Engineer", "Full-Stack Developer"];
+	const [index, setIndex] = useState(0);
+
+	useGSAP(() => {
 		const tl = gsap.timeline();
-		// @ts-ignore
+
+		//@ts-ignore
 		tl.from(textRefs.intro.current?.scale, {
 			x: 0,
 			y: 0,
@@ -27,8 +38,10 @@ const HeroText = ({ scaleFactor }: { scaleFactor: number }) => {
 			duration: 1.8,
 			ease: "elastic.out(1, 0.5)",
 		});
+
+		// Animate name text
 		tl.from(
-			// @ts-ignore
+			//@ts-ignore
 			textRefs.name.current?.scale,
 			{
 				x: 0,
@@ -48,7 +61,7 @@ const HeroText = ({ scaleFactor }: { scaleFactor: number }) => {
 		});
 
 		tl.from(
-			// @ts-ignore
+			//@ts-ignore
 			textRefs.title.current?.scale,
 			{
 				x: 0,
@@ -61,7 +74,7 @@ const HeroText = ({ scaleFactor }: { scaleFactor: number }) => {
 		);
 
 		gsap.to(textRefs.title.current, {
-			// @ts-ignore
+			//@ts-ignore
 			color: ["#ffcc00", "#ff0000", "#00ffcc", "#ffffff"],
 			duration: 2,
 			repeat: -1,
@@ -70,7 +83,7 @@ const HeroText = ({ scaleFactor }: { scaleFactor: number }) => {
 		});
 
 		tl.from(
-			// @ts-ignore
+			//@ts-ignore
 			textRefs.description.current?.scale,
 			{
 				x: 0,
@@ -79,128 +92,140 @@ const HeroText = ({ scaleFactor }: { scaleFactor: number }) => {
 				duration: 1.8,
 				ease: "back.out(1.7)",
 			},
-			"-=0.8"
+			"-=0.4"
 		);
 
-		const descriptionText = textRefs.description.current;
-		if (descriptionText) {
-			// @ts-ignore
-			gsap.to(descriptionText.children, {
-				y: 20,
-				duration: 1.8,
-				stagger: 0.05,
-				ease: "power3.out",
-			});
+ 		if (isSmallScreen && textTransitionRef.current) {
+			tl.fromTo(
+				textTransitionRef.current,
+				{ opacity: 0, y: 10 }, 
+				{ opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+				"-=1"
+			);
 		}
-	}, []);
+	}, [isSmallScreen]);
+
+	useEffect(() => {
+		if (!isSmallScreen) return;
+
+		const interval = setInterval(() => {
+			setIndex((prevIndex) => (prevIndex + 1) % TEXTS.length);
+		}, 5000);
+
+		return () => clearInterval(interval);
+		
+	}, [isSmallScreen]);useEffect(() => {
+		if (isSmallScreen) {
+			setTimeout(() => {
+				setShowText(true);
+			}, 1400);
+		}
+	}, [isSmallScreen]);
 
 	return (
 		<>
-			{/* "Hi, my name is" */}
 			<Text
 				ref={textRefs.intro}
 				fontSize={0.3 * scaleFactor}
+				font='/fonts/Poppins-Regular.ttf'
 				color='#ffffff'
 				position={[0, 2 * scaleFactor, 0]}
-				font='/fonts/Poppins-Regular.ttf'
 				textAlign='center'>
 				Hi, my name is
 			</Text>
 
-			{/* "Victor Mwangi" */}
 			<Text
 				ref={textRefs.name}
 				fontSize={0.7 * scaleFactor}
+				font='/fonts/LobsterTwo-Regular.ttf'
 				color='#00ffcc'
 				position={[0, 1.3 * scaleFactor, 0]}
-				font='/fonts/LobsterTwo-Regular.ttf'
 				textAlign='center'>
 				Victor Mwangi
 			</Text>
 
-			{/* "Software Engineer" */}
 			<Text
 				ref={textRefs.title}
-				fontSize={0.7 * scaleFactor}
-				color='#ffcc00'
-				position={[0, 0.5 * scaleFactor, 0]}
+				fontSize={isSmallScreen ? 0.5 * scaleFactor : 0.7 * scaleFactor}
 				font='/fonts/Rajdhani-Regular.ttf'
+				color='#ffcc00'
+				position={[
+					0,
+					isSmallScreen ? 0.3 * scaleFactor : 0.5 * scaleFactor,
+					0,
+				]}
 				textAlign='center'>
-				Software Engineer | Full-Stack Developer
+				{isSmallScreen ? (
+					<Html position={[0, 0, 0]} center>
+						<div
+							style={{
+								opacity: showText ? 1 : 0,
+								transform: showText
+									? "translateY(0px)"
+									: "translateY(12px)",
+								transition:
+									"opacity 1.8s ease-out, transform 1.5s ease-out",
+							}}>
+							<TextTransition
+								style={{
+									fontFamily: `'Rajdhani', sans-serif`,
+									color: "#ffcc00",
+									whiteSpace: "nowrap",
+									display: "inline-block",
+									fontSize: "1.5rem",
+									textAlign: "center",
+									width: "200px",
+								}}
+								springConfig={presets.gentle}>
+								{TEXTS[index]}
+							</TextTransition>
+						</div>
+					</Html>
+				) : (
+					"Software Engineer | Full-Stack Developer"
+				)}
 			</Text>
 
-			{/* Description */}
 			<Text
 				ref={textRefs.description}
-				fontSize={0.25 * scaleFactor}
+				fontSize={
+					isSmallScreen ? 0.18 * scaleFactor : 0.25 * scaleFactor
+				}
 				color='#ffffff'
-				position={[0, -0.8 * scaleFactor, 0]}
-				lineHeight={1.5}
+				position={[
+					0,
+					isSmallScreen ? -1 * scaleFactor : -0.5 * scaleFactor,
+					0,
+				]}
+				lineHeight={1.4}
 				font='/fonts/Inter-Regular.ttf'
-				maxWidth={9 * scaleFactor}
+				maxWidth={isSmallScreen ? 4 * scaleFactor : 9.5 * scaleFactor}
 				textAlign='center'>
 				I design and develop scalable applications, fine-tune
 				performance, and craft efficient solutions to complex
-				challenges. Passionate about cloud computing, AI, BlockChain and
-				algorithmic bots, I thrive on innovation and pushing the
+				challenges. Passionate about cloud computing, AI, Blockchain,
+				and algorithmic bots, I thrive on innovation and pushing the
 				boundaries of technology.
 			</Text>
 		</>
 	);
 };
 
-const ParticleBackground = () => {
-	return (
-		<>
-			<Stars
-				radius={100}
-				depth={50}
-				count={8000}
-				factor={4}
-				saturation={0}
-				fade
-				speed={1}
-			/>
-			<Sparkles
-				count={300}
-				scale={10}
-				size={2}
-				speed={0.5}
-				color='#ffffff'
-			/>
-			<Sparkles
-				count={100}
-				scale={10}
-				size={2}
-				speed={0.5}
-				color='aqua'
-			/>
-			<Sparkles
-				count={100}
-				scale={10}
-				size={2}
-				speed={0.5}
-				color='orange'
-			/>
-		</>
-	);
-};
+const ParticleBackground = () => (
+	<>
+		<Stars radius={100} depth={50} count={8000} factor={4} fade speed={1} />
+		<Sparkles count={300} scale={10} size={2} speed={0.5} color='#ffffff' />
+	</>
+);
 
-// 3D Scene
-const Scene = ({ scaleFactor }: { scaleFactor: number }) => {
-	return (
-		<Canvas camera={{ position: [0, 0, 10 * scaleFactor], fov: 50 }}>
-			<ambientLight intensity={0.5} />
-			<pointLight
-				position={[10, 10, 10]}
-				intensity={0.5}
-				color='#ffffff'
-			/>
-			<ParticleBackground />
-			<HeroText scaleFactor={scaleFactor} />
-		</Canvas>
-	);
-};
+const Scene = ({ scaleFactor }: { scaleFactor: number }) => (
+	<Canvas camera={{ position: [0, 0, 10 * scaleFactor], fov: 50 }}>
+		<ambientLight intensity={0.5} />
+		<pointLight position={[10, 10, 10]} intensity={0.5} color='#ffffff' />
+		<ParticleBackground />
+		<HeroText scaleFactor={scaleFactor} />
+	</Canvas>
+);
 
 const HeroSection = () => {
 	const [scaleFactor, setScaleFactor] = useState(1);
@@ -208,7 +233,9 @@ const HeroSection = () => {
 	useEffect(() => {
 		const handleResize = () => {
 			const width = window.innerWidth;
-			if (width < 768) {
+			if (width < 480) {
+				setScaleFactor(0.5);
+			} else if (width < 768) {
 				setScaleFactor(0.6);
 			} else if (width < 1024) {
 				setScaleFactor(0.8);
@@ -216,7 +243,6 @@ const HeroSection = () => {
 				setScaleFactor(1);
 			}
 		};
-
 		handleResize();
 		window.addEventListener("resize", handleResize);
 		return () => window.removeEventListener("resize", handleResize);

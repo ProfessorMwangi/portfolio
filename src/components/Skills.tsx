@@ -189,7 +189,7 @@ const Skills = () => {
 				speed: 1,
 			},
 			number: {
-				value: 30,
+				value: 40,
 			},
 			opacity: {
 				value: 0.3,
@@ -221,7 +221,7 @@ const Skills = () => {
 						initial={{ y: 20, opacity: 0 }}
 						animate={{ y: 0, opacity: 1 }}
 						transition={{ duration: 0.5, delay: 2.2 }}
-						className='text-5xl md:text-7xl sm:text-5xl font-bold text-center mb-16'>
+						className='text-4xl md:text-7xl sm:text-5xl font-bold text-center mb-8 md:mb-16 lg:mb-16'>
 						<span className='bg-clip-text font-Quick text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 '>
 							Technical Arsenal
 						</span>
@@ -236,7 +236,7 @@ const Skills = () => {
 							<button
 								key={category}
 								onClick={() => setSelectedCategory(category)}
-								className={`px-4 py-2 rounded-full transition-all ${
+								className={`px-4 py-2 rounded-full transition-all text-[13px] md:text-base lg:text-base ${
 									selectedCategory === category
 										? "bg-purple-600 text-white"
 										: "bg-gray-800 text-gray-300 hover:bg-gray-700"

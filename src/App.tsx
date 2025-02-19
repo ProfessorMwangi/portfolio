@@ -1,5 +1,5 @@
 /** @format */
-import  { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -40,7 +40,7 @@ function App() {
 		};
 	}, []);
 
-useGSAP(() => {
+	useGSAP(() => {
 		gsap.registerPlugin(ScrollTrigger);
 
 		const sections = gsap.utils.toArray(".section") as HTMLElement[];
@@ -77,7 +77,8 @@ useGSAP(() => {
 				<section className='section'>
 					<Skills />
 				</section>
-					<Projects />
+				<Projects />
+				
 					<Contact />
 			</main>
 			<Footer />

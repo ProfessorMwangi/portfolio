@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -25,11 +26,12 @@ const Navbar = () => {
 		}
 	};
 
-	const navItems = [
-		{ label: "Home", id: "hero" },
-		{ label: "Skills", id: "skills" },
-		{ label: "Projects", id: "projects" },
-	];
+const navItems = [
+	{ label: "Home", id: "hero" },
+	{ label: "Skills", id: "skills" },
+	{ label: "Projects", id: "projects" },
+];
+
 
 	const socialLinks = [
 		{
@@ -42,7 +44,12 @@ const Navbar = () => {
 			href: "https://www.linkedin.com/in/victor-mwangi-9b5667317/",
 			label: "LinkedIn",
 		},
-		{ icon: <Mail className='w-5 h-5' />, href: "#", label: "Email" },
+		{
+			icon: <Mail className='w-5 h-5' />,
+			label: "Email",
+			href: "",
+		
+		},
 	];
 
 	return (
@@ -80,7 +87,16 @@ const Navbar = () => {
 									className='text-gray-300 hover:text-white transition-colors'>
 									{item.label}
 								</motion.button>
-							))}
+							))}{" "}
+							<	Link to="/cv" >
+							<motion.button
+								
+								initial={{ opacity: 0, y: -20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ delay: 0.1 * (navItems.length + 1) }}
+								className='text-gray-300 hover:text-white transition-colors'>
+									View Cv							</motion.button>
+							</Link>
 						</div>
 
 						{/* Social Links */}

@@ -202,9 +202,12 @@ const Skills = () => {
 
 	return (
 		<>
-			<AnimatePresence mode="popLayout">{loading && <Loading />}</AnimatePresence>
+			<AnimatePresence mode='popLayout'>
+				{loading && <Loading />}
+			</AnimatePresence>
 
 			<motion.div
+				id='skills'
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ duration: 0.5, delay: 2 }}

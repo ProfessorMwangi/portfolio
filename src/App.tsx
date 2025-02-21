@@ -1,5 +1,6 @@
 /** @format */
 import { useEffect, useRef } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,6 +11,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import CV from "./pages/Cv"; // Import the CV page
 import { useGSAP } from "@gsap/react";
 
 function App() {
@@ -68,21 +70,32 @@ function App() {
 	}, []);
 
 	return (
-		<div className='relative bg-black text-white' ref={sectionsRef}>
-			<Navbar />
-			<main className='relative z-10'>
-				<section className='section'>
-					<Hero />
-				</section>
-				<section className='section'>
-					<Skills />
-				</section>
-				<Projects />
-				
-					<Contact />
-			</main>
-			<Footer />
-		</div>
+		<Router>
+			<div className='relative bg-black text-white' ref={sectionsRef}>
+				<Routes>
+					<Route
+						path='/'
+						element={
+							<>
+								<Navbar />
+								<main className='relative z-10'>
+									<section className='section'>
+										<Hero />
+									</section>
+									<section className='section'>
+										<Skills />
+									</section>
+									<Projects />
+									<Contact />
+									<Footer />
+								</main>
+							</>
+						}
+					/>
+					<Route path='/cv' element={<CV />} />
+				</Routes>
+			</div>
+		</Router>
 	);
 }
 

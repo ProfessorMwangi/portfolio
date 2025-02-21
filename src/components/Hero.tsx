@@ -250,6 +250,7 @@ const HeroSection = () => {
 
 	return (
 		<motion.div
+			id="hero"
 			className='hero-section'
 			style={{
 				width: "100vw",

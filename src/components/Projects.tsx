@@ -1,11 +1,22 @@
 /** @format */
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
-import { useState } from "react";
+import { Github, ExternalLink, Wrench, Info } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Projects = () => {
-	const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState<number | null>(null);
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth <= 1024);
+		};
+
+		handleResize();
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
 
 	const projects = [
 		{
@@ -15,7 +26,9 @@ const Projects = () => {
 			image: "https://www.waterstechnology.com/sites/default/files/styles/landscape_750_463/public/2023-11/GettyImages-1393224925.jpg.webp?itok=kcpLIMQr",
 			tech: ["Python", "Rust"],
 			github: "#",
-			live: "#",
+			live: "",
+			underDevelopment: true,
+			underNDA: true, // Add this field for NDA projects
 		},
 		{
 			title: "Garden Florist",
@@ -23,8 +36,10 @@ const Projects = () => {
 				"Full-stack e-commerce solution with real-time inventory management and payment processing.",
 			image: "https://res.cloudinary.com/dipqldzry/image/upload/v1733244986/brazilian%20jasmine.jpg",
 			tech: ["React", "Node.js", "MongoDB", "M-pesa", "RabbitMQ"],
-			github: "#",
+			github: "https://github.com/ProfessorMwangi/Garden-Florist-v3",
 			live: "https://garden-florist-v3.vercel.app/",
+			underDevelopment: false,
+			underNDA: false,
 		},
 		{
 			title: "Medrin Jobs",
@@ -41,20 +56,31 @@ const Projects = () => {
 			],
 			github: "https://github.com/ProfessorMwangi/medrin-jobs-frontend-v3",
 			live: "https://medrin-jobs-frontend.vercel.app/",
+			underDevelopment: false,
+			underNDA: false,
 		},
 		{
 			title: "Trigger Influence",
 			description:
 				"Advertising platform for influencers to manage their content and reach their target audience.",
-			image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG9ubGluZSUyMGFkdmVydGlzaW5nfGVufDB8fDB8fHww",
+			image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 			tech: ["React", "Node.js", "MongoDB"],
 			github: "#",
 			live: "https://triggerinfluence.netlify.app/",
+			underDevelopment: true,
+			underNDA: true,
 		},
 	];
 
+	const hasFrontend = (tech: string[]) => {
+		const frontendFrameworks = ["React", "Vue", "Angular", "Svelte"];
+		return tech.some((t) => frontendFrameworks.includes(t));
+	};
+
 	return (
-		<div className='font-Monte min-h-screen bg-gradient-to-b from-black to-gray-900 py-20 relative overflow-hidden'>
+		<div
+			id='projects'
+			className='font-Monte min-h-screen bg-gradient-to-b from-black to-gray-900 py-20 relative overflow-hidden'>
 			<div className='absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:100px_100px] [transform-origin:0_0] [-webkit-mask-image:linear-gradient(black,transparent)]' />
 
 			<div className='container mx-auto px-4 relative z-10'>
@@ -73,11 +99,33 @@ const Projects = () => {
 						<motion.div
 							key={index}
 							className='project-card group relative overflow-hidden rounded-xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50'
-							whileHover={{ scale: 1.02 }}
+							whileHover={!isMobile ? { scale: 1.02 } : {}}
 							initial={{ opacity: 0, y: 50 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true, amount: 0.2 }}
-							transition={{ duration: 1, ease: "easeOut" }}>
+							transition={{ duration: 1, ease: "easeOut" }}
+							onClick={() =>
+								isMobile &&
+								setIsOpen(isOpen === index ? null : index)
+							}
+							onMouseEnter={() => !isMobile && setIsOpen(index)}
+							onMouseLeave={() => !isMobile && setIsOpen(null)}>
+							{/* Under Development Badge */}
+							{project.underDevelopment && (
+								<div className='absolute top-3 left-3 bg-yellow-600 text-black px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1'>
+									<Wrench size={14} />
+									<span>Under Development</span>
+								</div>
+							)}
+
+							{/* NDA Badge */}
+							{project.underNDA && (
+								<div className='absolute top-3 right-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1'>
+									<Info size={14} />
+									<span>Under NDA</span>
+								</div>
+							)}
+
 							<div className='relative h-[400px] overflow-hidden'>
 								<img
 									src={project.image}
@@ -88,23 +136,18 @@ const Projects = () => {
 
 								<div
 									className={`absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-500 ${
-										isOpen
+										isOpen === index
 											? "translate-y-0"
 											: "translate-y-10"
-									}`}
-									onClick={() => setIsOpen(!isOpen)} // Toggle on click
-								>
-									<h3
-										className={`font-Quick text-2xl font-bold text-white mb-2 transition-colors ${
-											isOpen
-												? "text-purple-400"
-												: "text-white"
-										}`}>
+									}`}>
+									<h3 className='font-Quick text-2xl font-bold text-white mb-2'>
 										{project.title}
 									</h3>
 									<p
 										className={`text-gray-100 mb-4 transition-opacity duration-500 ${
-											isOpen ? "opacity-100" : "opacity-0"
+											isOpen === index
+												? "opacity-100"
+												: "opacity-0"
 										}`}>
 										{project.description}
 									</p>
@@ -120,25 +163,37 @@ const Projects = () => {
 									</div>
 
 									<div
-										className={`flex gap-4 transition-opacity duration-500 ${
-											isOpen ? "opacity-100" : "opacity-0"
+										className={`flex gap-4 ${
+											isOpen === index
+												? "opacity-100"
+												: "opacity-0"
 										}`}>
-										<a
-											href={project.github}
-											className='text-white hover:text-purple-400 transition-colors flex items-center gap-2'
-											target='_blank'
-											rel='noopener noreferrer'>
-											<Github className='w-5 h-5' />
-											<span>Code</span>
-										</a>
-										<a
-											href={project.live}
-											className='text-white hover:text-purple-400 transition-colors flex items-center gap-2'
-											target='_blank'
-											rel='noopener noreferrer'>
-											<ExternalLink className='w-5 h-5' />
-											<span>Live Demo</span>
-										</a>
+										{project.underNDA ? (
+											<div className='text-gray-400 flex items-center gap-2'>
+												<Info className='w-5 h-5' />
+												<span>Code under NDA</span>
+											</div>
+										) : (
+											<a
+												href={project.github}
+												className='text-white hover:text-purple-400 flex items-center gap-2'>
+												<Github className='w-5 h-5' />
+												<span>Code</span>
+											</a>
+										)}
+										{hasFrontend(project.tech) ? (
+											<a
+												href={project.live}
+												className='text-white hover:text-purple-400 flex items-center gap-2'>
+												<ExternalLink className='w-5 h-5' />
+												<span>Live Demo</span>
+											</a>
+										) : (
+											<span className='text-gray-400 flex items-center gap-2'>
+												<Info className='w-5 h-5' />
+												No frontend available
+											</span>
+										)}
 									</div>
 								</div>
 							</div>

@@ -4,12 +4,13 @@ import React from "react";
 import {
 	Phone,
 	Mail,
-	MapPin,
 	Globe,
 	Code2,
 	Briefcase,
 	GraduationCap,
 	Heart,
+	Github,
+	Linkedin,
 } from "lucide-react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
@@ -63,15 +64,19 @@ function Cv() {
 								<span>mwangivictor929@gmail.com</span>
 							</div>
 							<div className='flex items-center space-x-2 text-gray-600'>
-								<MapPin size={18} />
-								<span>Kitengela,Kajiado</span>
+								<Github size={18} />
+								<a
+									href='https://github.com/ProfessorMwangi'
+									className='hover:text-gray-800'>
+									/ProfessorMwangi
+								</a>{" "}
 							</div>
 							<div className='flex items-center space-x-2 text-gray-600'>
-								<Globe size={18} />
+								<Linkedin size={18} />
 								<a
-									href='https://victormwangi.vercel.app'
+									href='https://www.linkedin.com/in/victor-mwangi-9b5667317/'
 									className='hover:text-gray-800'>
-									victormwangi.vercel.app
+								/victor-mwangi
 								</a>
 							</div>
 						</div>

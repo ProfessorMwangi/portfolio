@@ -20,6 +20,9 @@ import {
 	SiFlask,
 	SiSocketdotio,
 	SiTypescript,
+	SiTailwindcss,
+	SiDocker,
+	SiGit,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 
@@ -144,6 +147,30 @@ const skills: Skill[] = [
 		status: "mastered",
 		category: "Infrastructure",
 		color: "#010101",
+	},
+	{
+		name: "Tailwind CSS",
+		icon: <SiTailwindcss className='w-8 h-8' />,
+		description: "Utility-First CSS Framework",
+		status: "mastered",
+		category: "Frontend",
+		color: "#06B6D4",
+	},
+	{
+		name: "Git",
+		icon: <SiGit className='w-8 h-8' />,
+		description: "Version Control, Collaboration",
+		status: "mastered",
+		category: "Infrastructure",
+		color: "#F05032",
+	},
+	{
+		name: "Docker",
+		icon: <SiDocker className='w-8 h-8' />,
+		description: "Containerization, Orchestration",
+		status: "mastered",
+		category: "Infrastructure",
+		color: "#0DB7ED",
 	},
 ];
 

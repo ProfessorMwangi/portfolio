@@ -47,7 +47,7 @@ const navItems = [
 		{
 			icon: <Mail className='w-5 h-5' />,
 			label: "Email",
-			href: "",
+			href: "#",
 		
 		},
 	];

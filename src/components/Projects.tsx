@@ -28,7 +28,7 @@ const Projects = () => {
 			github: "#",
 			live: "",
 			underDevelopment: true,
-			underNDA: true, // Add this field for NDA projects
+			underNDA: true,
 		},
 		{
 			title: "Garden Florist",
@@ -64,7 +64,7 @@ const Projects = () => {
 			description:
 				"Advertising platform for influencers to manage their content and reach their target audience.",
 			image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-			tech: ["React", "Node.js", "MongoDB"],
+			tech: ["React", "Node.js", "MongoDB", "TailwindCSS"],
 			github: "#",
 			live: "https://triggerinfluence.netlify.app/",
 			underDevelopment: true,
@@ -112,17 +112,9 @@ const Projects = () => {
 							onMouseLeave={() => !isMobile && setIsOpen(null)}>
 							{/* Under Development Badge */}
 							{project.underDevelopment && (
-								<div className='absolute top-3 left-3 bg-yellow-600 text-black px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1'>
+								<div className='absolute top-4 right-4 bg-transparent backdrop-blur-2xl text-gray-400 px-2 py-4 rounded-full text-xs font-semibold flex items-center gap-1 z-50 w-fit'>
 									<Wrench size={14} />
 									<span>Under Development</span>
-								</div>
-							)}
-
-							{/* NDA Badge */}
-							{project.underNDA && (
-								<div className='absolute top-3 right-3 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1'>
-									<Info size={14} />
-									<span>Under NDA</span>
 								</div>
 							)}
 

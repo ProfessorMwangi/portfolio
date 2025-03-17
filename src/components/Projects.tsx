@@ -176,6 +176,7 @@ const Projects = () => {
 										{hasFrontend(project.tech) ? (
 											<a
 												href={project.live}
+												target='_blank'
 												className='text-white hover:text-purple-400 flex items-center gap-2'>
 												<ExternalLink className='w-5 h-5' />
 												<span>Live Demo</span>

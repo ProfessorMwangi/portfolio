@@ -37,7 +37,7 @@ const Projects = () => {
 			image: "https://res.cloudinary.com/dipqldzry/image/upload/v1733244986/brazilian%20jasmine.jpg",
 			tech: ["React", "Node.js", "MongoDB", "M-pesa", "RabbitMQ"],
 			github: "https://github.com/ProfessorMwangi/Garden-Florist-v3",
-			live: "https://garden-florist-v3.vercel.app/",
+			live: "https://garden-florist-v4.vercel.app/",
 			underDevelopment: false,
 			underNDA: false,
 		},

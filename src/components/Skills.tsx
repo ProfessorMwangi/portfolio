@@ -199,7 +199,15 @@ const skills: Skill[] = [
 		status: "mastered",	
 		category: "Languages",
 		color: "#777BB3",
-}
+	},
+	{
+		name: "Axum",
+		icon: <SiRust className='w-8 h-8' />,
+		description: "Rust Web Framework, High-Performance Server",
+		status: "mastered",
+		category: "Backend",
+		color: "#DD3B2B",
+	}
 ];
 
 const Skills = () => {

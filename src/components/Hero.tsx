@@ -114,7 +114,7 @@ const [showText, setShowText] = useState(false);
 
 		return () => clearInterval(interval);
 		
-	}, [isSmallScreen]);useEffect(() => {
+	}, [TEXTS.length, isSmallScreen]);useEffect(() => {
 		if (isSmallScreen) {
 			setTimeout(() => {
 				setShowText(true);
@@ -137,7 +137,8 @@ const [showText, setShowText] = useState(false);
 			<Text
 				ref={textRefs.name}
 				fontSize={0.7 * scaleFactor}
-				font='/fonts/LobsterTwo-Regular.ttf'
+				font='/fonts/Rajdhani-Regular.ttf'
+				fontWeight={900}
 				color='#00ffcc'
 				position={[0, 1.3 * scaleFactor, 0]}
 				textAlign='center'>

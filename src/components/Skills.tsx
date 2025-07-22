@@ -23,6 +23,9 @@ import {
 	SiTailwindcss,
 	SiDocker,
 	SiGit,
+	SiNginx,
+	SiWordpress,
+	SiPhp,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 
@@ -120,7 +123,7 @@ const skills: Skill[] = [
 		name: "Rust",
 		icon: <SiRust className='w-8 h-8' />,
 		description: "Systems Programming, WebAssembly",
-		status: "learning",
+		status: "mastered",
 		category: "Languages",
 		color: "#000000",
 	},
@@ -161,7 +164,7 @@ const skills: Skill[] = [
 		icon: <SiGit className='w-8 h-8' />,
 		description: "Version Control, Collaboration",
 		status: "mastered",
-		category: "Infrastructure",
+		category: "DevOps",
 		color: "#F05032",
 	},
 	{
@@ -169,9 +172,34 @@ const skills: Skill[] = [
 		icon: <SiDocker className='w-8 h-8' />,
 		description: "Containerization, Orchestration",
 		status: "mastered",
-		category: "Infrastructure",
+		category: "DevOps",
 		color: "#0DB7ED",
 	},
+
+	{
+		name: "Nginx",
+		icon: <SiNginx className='w-8 h-8' />,
+		description: "Reverse Proxy, Load Balancing",
+		status: "mastered",
+		category: "DevOps",
+		color: "#000000",
+	},
+	{
+		name: "WordPress",
+		icon: <SiWordpress className='w-8 h-8' />,
+		description: "Content Management System, Custom Themes",
+		status: "mastered",
+		category: "CMS",
+		color: "#21759B",
+	},
+	{
+		name: "PHP",
+		icon: <SiPhp className='w-8 h-8' />,
+		description: "Server-Side Scripting, Web Development",
+		status: "mastered",	
+		category: "Languages",
+		color: "#777BB3",
+}
 ];
 
 const Skills = () => {

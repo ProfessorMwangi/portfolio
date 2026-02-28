@@ -40,6 +40,14 @@ interface Skill {
 
 const skills: Skill[] = [
 	{
+		name: "Rust",
+		icon: <SiRust className='w-8 h-8' />,
+		description: "Systems Programming, WebAssembly",
+		status: "mastered",
+		category: "Languages",
+		color: "#000000",
+	},
+	{
 		name: "JavaScript",
 		icon: <SiJavascript className='w-8 h-8' />,
 		description: "Modern ES6+, Async Programming",
@@ -120,14 +128,6 @@ const skills: Skill[] = [
 		color: "#FF6600",
 	},
 	{
-		name: "Rust",
-		icon: <SiRust className='w-8 h-8' />,
-		description: "Systems Programming, WebAssembly",
-		status: "mastered",
-		category: "Languages",
-		color: "#000000",
-	},
-	{
 		name: "Flask",
 		icon: <SiFlask className='w-8 h-8' />,
 		description: "Python Web Framework, RESTful APIs, Microservices",
@@ -193,21 +193,13 @@ const skills: Skill[] = [
 		color: "#21759B",
 	},
 	{
-		name: "PHP",
-		icon: <SiPhp className='w-8 h-8' />,
-		description: "Server-Side Scripting, Web Development",
-		status: "mastered",	
-		category: "Languages",
-		color: "#777BB3",
-	},
-	{
 		name: "Axum",
 		icon: <SiRust className='w-8 h-8' />,
 		description: "Rust Web Framework, High-Performance Server",
 		status: "mastered",
 		category: "Backend",
 		color: "#DD3B2B",
-	}
+	},
 ];
 
 const Skills = () => {

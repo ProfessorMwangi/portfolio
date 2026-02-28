@@ -19,7 +19,7 @@ const RustMarquee = () => {
 	const doubled = [...items, ...items];
 
 	return (
-		<div className='relative w-full overflow-hidden py-5 bg-black border-y border-purple-500/15'>
+		<div className='relative w-full overflow-hidden py-5 bg-black border-y border-gray-800/40'>
 			{/* Left fade */}
 			<div className='absolute left-0 top-0 h-full w-32 z-10 bg-gradient-to-r from-black to-transparent pointer-events-none' />
 			{/* Right fade */}
@@ -30,10 +30,10 @@ const RustMarquee = () => {
 				style={{ animation: "rustMarquee 28s linear infinite" }}>
 				{doubled.map((item, i) => (
 					<span key={i} className='flex items-center'>
-						<span className='mx-3 text-[11px] font-mono font-bold tracking-[0.25em] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-[#CE422B]'>
+						<span className='mx-3 text-[11px] font-mono font-bold tracking-[0.25em] text-gray-500'>
 							{item}
 						</span>
-						<span className='text-purple-500/30 text-xs'>🦀</span>
+						<span className='text-gray-700 text-xs'>·</span>
 					</span>
 				))}
 			</div>

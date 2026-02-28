@@ -23,7 +23,7 @@ const Projects = () => {
 			title: "Mimi Fitness",
 			description:
 				"Full-stack gym and fitness center platform with class scheduling, membership management, and community engagement features.",
-			image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&auto=format&fit=crop&q=60",
+			image: "https://res.cloudinary.com/dqbtsuw9z/image/upload/v1771175127/www1_wtfdpu.png",
 			tech: ["React", "Node.js", "TailwindCSS"],
 			github: "#",
 			live: "https://mimi-fitness.ubuntu.click/",
@@ -35,9 +35,20 @@ const Projects = () => {
 			description:
 				"Built and deployed 70+ branded digital menu websites for Artcaffe, one of Kenya's most recognized restaurant and café chains, ensuring a consistent and modern dining experience across all locations.",
 			image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=500&auto=format&fit=crop&q=60",
-			tech: ["HTML", "Django", "TailwindCSS","Bootstrap"],
+			tech: ["HTML", "Django", "TailwindCSS", "Bootstrap"],
 			github: "#",
 			live: "https://artcaffemenu.ubuntu.click/",
+			underDevelopment: false,
+			underNDA: true,
+		},
+		{
+			title: "Enoteca CRM",
+			description:
+				"A finely engineered, bespoke CRM capable of dispatching thousands of targeted emails — deeply integrated with Shopify to fire market-incentive campaigns with the precision and power of a BMW B58 engine.",
+			image: "https://enoteca.ubuntu.click/enoteca-mail-header.jpg",
+			tech: ["React", "Node.js", "Shopify", "TailwindCSS"],
+			github: "#",
+			live: "https://enoteca.ubuntu.click/",
 			underDevelopment: false,
 			underNDA: true,
 		},
@@ -55,8 +66,8 @@ const Projects = () => {
 		{
 			title: "Kraftory Biergarten",
 			description:
-				"Digital menu and brand platform for Kraftory Biergarten, a premium beer garden experience — showcasing craft beers, food offerings, and venue atmosphere.",
-			image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=500&auto=format&fit=crop&q=60",
+				"Sophisticated yet effortlessly simple digital menu platform for Kraftory Biergarten, complete with a custom CMS that empowers the team to create and manage menus with ease.",
+			image: "https://img4.dhresource.com/webp/m/f3/albu/jc/j/06/084b2067-60f9-403e-9ae6-0dc9b5b45827.jpg",
 			tech: ["HTML", "NodeJS", "TailwindCSS", "Bootstrap"],
 			github: "#",
 			live: "https://kraftory-biergarten.ubuntu.click/",
@@ -68,7 +79,7 @@ const Projects = () => {
 			description:
 				"Platform supporting student-led environmental clubs in schools, enabling peer-to-peer sustainability education and conservation projects across communities.",
 			image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500&auto=format&fit=crop&q=60",
-			tech: ["React", "PHP", "TailwindCSS","Wordpress"],
+			tech: ["React", "PHP", "TailwindCSS", "Wordpress"],
 			github: "#",
 			live: "https://green-future.club/",
 			underDevelopment: false,

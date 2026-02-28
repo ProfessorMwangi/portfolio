@@ -20,9 +20,20 @@ const Projects = () => {
 
 	const projects = [
 		{
+			title: "Mimi Fitness",
+			description:
+				"Full-stack gym and fitness center platform with class scheduling, membership management, and community engagement features.",
+			image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&auto=format&fit=crop&q=60",
+			tech: ["React", "Node.js", "TailwindCSS"],
+			github: "#",
+			live: "https://mimi-fitness.ubuntu.click/",
+			underDevelopment: true,
+			underNDA: true,
+		},
+		{
 			title: "Artcaffe",
 			description:
-				"Multi-site restaurant ecosystem featuring 70+ menu websites, a dedicated wine platform (Enoteca), and a custom CRM system for Kenya's leading café chain.",
+				"Multi-site restaurant ecosystem featuring 70+ menu websites",
 			image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=500&auto=format&fit=crop&q=60",
 			tech: ["HTML", "Django", "TailwindCSS","Bootstrap"],
 			github: "#",

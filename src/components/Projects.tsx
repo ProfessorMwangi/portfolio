@@ -19,6 +19,7 @@ const Projects = () => {
 	}, []);
 
 	const projects = [
+
 		{
 			title: "AI-Powered HFT Trading",
 			description:
@@ -68,6 +69,50 @@ const Projects = () => {
 			github: "#",
 			live: "https://triggerinfluence.netlify.app/",
 			underDevelopment: true,
+			underNDA: true,
+		},
+		{
+			title: "Tazama",
+			description:
+				"Real-time monitoring and analytics platform delivering operational intelligence and data-driven insights.",
+			image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&auto=format&fit=crop&q=60",
+			tech: ["React", "Node.js", "TailwindCSS"],
+			github: "#",
+			live: "https://tazama.ubuntu.click/",
+			underDevelopment: false,
+			underNDA: true,
+		},
+		{
+			title: "Green Future",
+			description:
+				"Platform supporting student-led environmental clubs in schools, enabling peer-to-peer sustainability education and conservation projects across communities.",
+			image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500&auto=format&fit=crop&q=60",
+			tech: ["React", "Node.js", "TailwindCSS"],
+			github: "#",
+			live: "https://green-future.club/",
+			underDevelopment: false,
+			underNDA: true,
+		},
+		{
+			title: "Free the Girl",
+			description:
+				"NGO platform empowering girls through menstrual health education and sanitary pad distribution, reaching 3,200+ students across 70+ schools in Nakuru.",
+			image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=500&auto=format&fit=crop&q=60",
+			tech: ["React", "Node.js", "TailwindCSS"],
+			github: "#",
+			live: "https://free-the-girl.ubuntu.click/",
+			underDevelopment: false,
+			underNDA: true,
+		},
+		{
+			title: "Artcaffe",
+			description:
+				"Multi-site restaurant ecosystem featuring 70+ menu websites, a dedicated wine platform (Enoteca), and a custom CRM system for Kenya's leading café chain.",
+			image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=500&auto=format&fit=crop&q=60",
+			tech: ["React", "Node.js", "TailwindCSS"],
+			github: "#",
+			live: "https://artcaffemenu.ubuntu.click/",
+			underDevelopment: false,
 			underNDA: true,
 		},
 	];

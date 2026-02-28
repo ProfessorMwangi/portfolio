@@ -11,6 +11,8 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import RustMarquee from "./components/RustMarquee";
+import RustShowcase from "./components/RustShowcase";
 import CV from "./pages/Cv"; // Import the CV page
 import { useGSAP } from "@gsap/react";
 
@@ -86,6 +88,8 @@ function App() {
 										<Skills />
 									</section>
 									<Projects />
+									<RustMarquee />
+									<RustShowcase />
 									<Contact />
 									<Footer />
 								</main>

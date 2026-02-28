@@ -48,6 +48,14 @@ const skills: Skill[] = [
 		color: "#000000",
 	},
 	{
+		name: "TypeScript",
+		icon: <SiTypescript className='w-8 h-8' />,
+		description: "Strongly Typed Language",
+		status: "mastered",
+		category: "Languages",
+		color: "#007ACC",
+	},
+	{
 		name: "JavaScript",
 		icon: <SiJavascript className='w-8 h-8' />,
 		description: "Modern ES6+, Async Programming",
@@ -63,14 +71,7 @@ const skills: Skill[] = [
 		category: "Languages",
 		color: "#3776AB",
 	},
-	{
-		name: "TypeScript",
-		icon: <SiTypescript className='w-8 h-8' />,
-		description: "Strongly Typed Language",
-		status: "mastered",
-		category: "Languages",
-		color: "#007ACC",
-	},
+
 	{
 		name: "React",
 		icon: <SiReact className='w-8 h-8' />,

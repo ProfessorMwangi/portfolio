@@ -150,7 +150,7 @@ const Projects = () => {
 	];
 
 	const hasFrontend = (tech: string[]) => {
-		const frontendFrameworks = ["React", "Vue", "Angular", "Svelte"];
+		const frontendFrameworks = ["React", "Vue", "Angular", "Svelte", "HTML"];
 		return tech.some((t) => frontendFrameworks.includes(t));
 	};
 

@@ -53,6 +53,17 @@ const Projects = () => {
 			underNDA: true,
 		},
 		{
+			title: "Kraftory Biergarten",
+			description:
+				"Digital menu and brand platform for Kraftory Biergarten, a premium beer garden experience — showcasing craft beers, food offerings, and venue atmosphere.",
+			image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=500&auto=format&fit=crop&q=60",
+			tech: ["HTML", "NodeJS", "TailwindCSS", "Bootstrap"],
+			github: "#",
+			live: "https://kraftory-biergarten.ubuntu.click/",
+			underDevelopment: false,
+			underNDA: true,
+		},
+		{
 			title: "Green Future",
 			description:
 				"Platform supporting student-led environmental clubs in schools, enabling peer-to-peer sustainability education and conservation projects across communities.",

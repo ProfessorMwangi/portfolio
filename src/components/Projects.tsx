@@ -49,7 +49,7 @@ const Projects = () => {
 			tech: ["React", "Node.js", "Shopify", "TailwindCSS"],
 			github: "#",
 			live: "https://enoteca.ubuntu.click/",
-			underDevelopment: false,
+			underDevelopment: true,
 			underNDA: true,
 		},
 		{

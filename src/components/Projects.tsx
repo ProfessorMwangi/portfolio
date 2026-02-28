@@ -33,7 +33,7 @@ const Projects = () => {
 		{
 			title: "Artcaffe",
 			description:
-				"Multi-site restaurant ecosystem featuring 70+ menu websites",
+				"Built and deployed 70+ branded digital menu websites for Artcaffe, one of Kenya's most recognized restaurant and café chains, ensuring a consistent and modern dining experience across all locations.",
 			image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=500&auto=format&fit=crop&q=60",
 			tech: ["HTML", "Django", "TailwindCSS","Bootstrap"],
 			github: "#",

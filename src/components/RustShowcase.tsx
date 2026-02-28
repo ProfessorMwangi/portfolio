@@ -65,7 +65,7 @@ const Gear = ({
 			left,
 			right,
 			bottom,
-			color: `rgba(168, 85, 120, ${opacity})`,
+			color: `rgba(120, 120, 120, ${opacity})`,
 		}}
 		animate={{ rotate: reverse ? -360 : 360 }}
 		transition={{ duration, repeat: Infinity, ease: "linear" }}>
@@ -77,7 +77,7 @@ const RustShowcase = () => {
 	return (
 		<div className='relative w-full overflow-hidden bg-black py-24 md:py-32'>
 			{/* Blended purple-rust radial glow */}
-			<div className='absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(147,51,234,0.06)_0%,rgba(206,66,43,0.04)_40%,transparent_70%)]' />
+			<div className='absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.02)_0%,transparent_70%)]' />
 
 			{/* Gears */}
 			<Gear
@@ -132,7 +132,7 @@ const RustShowcase = () => {
 				<motion.img
 					src='https://rustacean.net/assets/rustacean-flat-happy.svg'
 					alt='Ferris the Rust crab'
-					className='w-28 h-28 md:w-40 md:h-40 mb-8 drop-shadow-[0_0_30px_rgba(168,85,247,0.3)]'
+					className='w-28 h-28 md:w-40 md:h-40 mb-8 drop-shadow-[0_0_25px_rgba(255,255,255,0.08)]'
 					initial={{ opacity: 0, scale: 0.5 }}
 					whileInView={{ opacity: 1, scale: 1 }}
 					viewport={{ once: true, amount: 0.5 }}
@@ -152,24 +152,18 @@ const RustShowcase = () => {
 					transition={{ duration: 0.8, delay: 0.4 }}>
 					<h2 className='font-Quick text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6'>
 						<span className='text-white'>I engineer </span>
-						<span className='bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-[#CE422B]'>
-							backends
-						</span>
+						<span className='text-gray-400'>backends</span>
 						<br />
 						<span className='text-white'>that never sleep.</span>
 					</h2>
 
-					<p className='text-gray-400 text-base md:text-lg leading-relaxed font-Monte'>
+					<p className='text-gray-500 text-base md:text-lg leading-relaxed font-Monte'>
 						No garbage collector. No runtime. No excuses.
 						<br className='hidden md:block' />
-						<span className='text-purple-400/90'>
-							If it compiles, it runs (...cough).
-						</span>{" "}
-						<span className='text-pink-400/80'>
-							If it runs, it doesn't stop.
-						</span>
+						If it compiles, it runs.{" "}
+						If it runs, it doesn't stop.
 						<br className='hidden md:block' />
-						<span className='text-gray-500'>
+						<span className='text-gray-600'>
 							I build systems where failure is a compile-time
 							error, not a production incident.
 						</span>
@@ -178,20 +172,20 @@ const RustShowcase = () => {
 
 				{/* Code-like accent line */}
 				<motion.div
-					className='mt-10 flex items-center gap-3 font-mono text-xs md:text-sm text-purple-400/40'
+					className='mt-10 flex items-center gap-3 font-mono text-xs md:text-sm text-gray-600'
 					initial={{ opacity: 0 }}
 					whileInView={{ opacity: 1 }}
 					viewport={{ once: true }}
 					transition={{ duration: 1, delay: 0.8 }}>
-					<span className='text-purple-500/20'>{"{"}</span>
+					<span className='text-gray-700'>{"{"}</span>
 					<span>async</span>
-					<span className='text-gray-600'>·</span>
-					<span className='text-pink-400/40'>fearless</span>
-					<span className='text-gray-600'>·</span>
-					<span className='text-[#CE422B]/40'>zero-cost</span>
-					<span className='text-gray-600'>·</span>
+					<span className='text-gray-700'>·</span>
+					<span>fearless</span>
+					<span className='text-gray-700'>·</span>
+					<span>zero-cost</span>
+					<span className='text-gray-700'>·</span>
 					<span>blazing</span>
-					<span className='text-purple-500/20'>{"}"}</span>
+					<span className='text-gray-700'>{"}"}</span>
 				</motion.div>
 			</div>
 		</div>

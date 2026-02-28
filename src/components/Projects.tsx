@@ -71,7 +71,7 @@ const Projects = () => {
 			tech: ["React", "Node.js", "TailwindCSS"],
 			github: "#",
 			live: "https://free-the-girl.ubuntu.click/",
-			underDevelopment: false,
+			underDevelopment: true,
 			underNDA: true,
 		},
 		{

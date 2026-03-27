@@ -20,6 +20,17 @@ const Projects = () => {
 
 	const projects = [
 		{
+			title: "Thuluji",
+			description:
+				"Thuluji delivers advanced biometric access control, smart surveillance, and workforce management solutions powered by ZKTeco technology. Our cutting-edge systems provide secure and efficient access management for businesses, ensuring safety and productivity with features like facial recognition, fingerprint scanning, and real-time monitoring.",
+			image: "https://thuluji-website.vercel.app/thuluthi-logo.png",
+			tech: ["React", "TailwindCSS", "Three JS"],
+			github: "#",
+			live: "https://thuluji-website.vercel.app/",
+			underDevelopment: true,
+			underNDA: true,
+		},
+		{
 			title: "Mimi Fitness",
 			description:
 				"Full-stack gym and fitness center platform with class scheduling, membership management, and community engagement features.",
@@ -64,6 +75,17 @@ const Projects = () => {
 			underNDA: true,
 		},
 		{
+			title: "Gigastream",
+			description:
+				"Gigastream Media Tech Ltd is a Kenyan-based advertising and innovation communications agency specializing in Out-of-Home (OOH) and Digital-Out-of-Home (DOOH) advertising solutions. With a focus on leveraging cutting- edge technology and data - driven strategies, Gigastream Media Tech Ltd delivers impactful advertising campaigns that engage audiences across various platforms, including digital billboards, interactive displays, and mobile applications.The company is committed to providing innovative advertising solutions that drive brand awareness and customer engagement in the dynamic Kenyan market.",
+			image: "https://res.cloudinary.com/dipqldzry/image/upload/v1745561376/mastercard-dhow_yxkoeu.jpg",
+			tech: ["React", "Three JS", "TailwindCSS"],
+			live: "https://gigastreammedia.com",
+			github: "#",
+			underDevelopment: false,
+			underNDA: true,
+		},
+		{
 			title: "Kraftory Biergarten",
 			description:
 				"Sophisticated yet effortlessly simple digital menu platform for Kraftory Biergarten, complete with a custom CMS that empowers the team to create and manage menus with ease.",
@@ -93,7 +115,7 @@ const Projects = () => {
 			tech: ["React", "Node.js", "TailwindCSS"],
 			github: "#",
 			live: "https://freethegirl.org/",
-			underDevelopment: true,
+			underDevelopment: false,
 			underNDA: true,
 		},
 		{

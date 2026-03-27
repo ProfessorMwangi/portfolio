@@ -22,7 +22,7 @@ const Projects = () => {
 		{
 			title: "Thuluji",
 			description:
-				"Thuluji delivers advanced biometric access control, smart surveillance, and workforce management solutions powered by ZKTeco technology. Our cutting-edge systems provide secure and efficient access management for businesses, ensuring safety and productivity with features like facial recognition, fingerprint scanning, and real-time monitoring.",
+				"Thuluji delivers advanced biometric access control, smart surveillance, and workforce management solutions powered by ZKTeco technology.",
 			image: "https://thuluji-website.vercel.app/thuluthi-logo.png",
 			tech: ["React", "TailwindCSS", "Three JS"],
 			github: "#",

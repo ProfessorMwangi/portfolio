@@ -111,15 +111,78 @@ function Cv() {
 								WORK EXPERIENCE
 							</h2>
 						</div>
+						
 
 						<div className='space-y-8'>
 							<div>
 								<div className='flex justify-between items-baseline mb-2'>
 									<h3 className='text-xl font-semibold text-gray-700'>
-										Fullstack Developer (In Progress)
+										CTO &amp; Lead Software Engineer
 									</h3>
 									<span className='text-gray-600'>
-										2024 - PRESENT
+										2025 — Present
+									</span>
+								</div>
+								<p className='text-gray-600 mb-2'>
+									Gigastream Media Tech Ltd
+								</p>
+								<ul className='list-disc list-inside text-gray-600 space-y-2'>
+									<li>
+										Define and drive the entire technical
+										strategy and system architecture as sole
+										engineer and CTO.
+									</li>
+									<li>
+										Frontend engineering — React applications,
+										client dashboards, and internal tooling.
+									</li>
+									<li>
+										Backend engineering in Rust, Node.js,
+										and Java — APIs, async services, and
+										business logic.
+									</li>
+									<li>
+										DevOps — server provisioning, CI/CD,
+										deployment pipelines, uptime monitoring,
+										and infrastructure management.
+									</li>
+									<li>
+										Database design, management, and
+										optimization across relational and
+										NoSQL systems.
+									</li>
+									<li>
+										Security — own application and
+										infrastructure security end-to-end.
+									</li>
+									<li>
+										Third-party integrations — APIs, payment
+										systems, and platform connectors.
+									</li>
+									<li>
+										Client-facing technical consultations
+										and product decision-making.
+									</li>
+									<li>
+										Manage and maintain LED screen
+										infrastructure — hardware troubleshooting
+										and on-site systems repair.
+									</li>
+									<li>
+										On-call incident response — first and
+										last line of defense when systems go
+										down.
+									</li>
+								</ul>
+							</div>
+
+							<div>
+								<div className='flex justify-between items-baseline mb-2'>
+									<h3 className='text-xl font-semibold text-gray-700'>
+										Fullstack Developer
+									</h3>
+									<span className='text-gray-600'>
+										2024 - 2025
 									</span>
 								</div>
 								<p className='text-gray-600 mb-2'>
@@ -153,10 +216,10 @@ function Cv() {
 							<div>
 								<div className='flex justify-between items-baseline mb-2'>
 									<h3 className='text-xl font-semibold text-gray-700'>
-										Frontend Development (In Progress)
+										Frontend Development
 									</h3>
 									<span className='text-gray-600'>
-										2025 - PRESENT
+										2025
 									</span>
 								</div>
 								<p className='text-gray-600 mb-2'>
@@ -200,7 +263,7 @@ function Cv() {
 									MORINGA SCHOOL
 								</h3>
 								<p className='text-gray-600'>
-									JUN 2024 - DEC 2024
+									JAN 2024 - DEC 2024
 								</p>
 								<p className='text-gray-600 mt-2'>
 									Software Engineering
@@ -219,6 +282,7 @@ function Cv() {
 							<div className='grid grid-cols-2 gap-4'>
 								<div>
 									<ul className='space-y-2 text-gray-600'>
+										<li>Typescript</li>
 										<li>Javascript</li>
 										<li>Python</li>
 										<li>Rust</li>

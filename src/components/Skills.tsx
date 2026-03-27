@@ -25,7 +25,6 @@ import {
 	SiGit,
 	SiNginx,
 	SiWordpress,
-	SiPhp,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 

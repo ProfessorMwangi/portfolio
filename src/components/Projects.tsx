@@ -89,10 +89,10 @@ const Projects = () => {
 			title: "Free the Girl",
 			description:
 				"NGO platform empowering girls through menstrual health education and sanitary pad distribution, reaching 3,200+ students across 70+ schools in Nakuru.",
-			image: "https://free-the-girl.ubuntu.click/media/girls%20happy%20for%20receiving%20their%20pads.jpeg",
+			image: "https://freethegirl.org/media/girls%20happy%20for%20receiving%20their%20pads.jpeg",
 			tech: ["React", "Node.js", "TailwindCSS"],
 			github: "#",
-			live: "https://free-the-girl.ubuntu.click/",
+			live: "https://freethegirl.org/",
 			underDevelopment: true,
 			underNDA: true,
 		},

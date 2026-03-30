@@ -26,7 +26,7 @@ const Projects = () => {
 			image: "https://thuluji-website.vercel.app/thuluthi-logo.png",
 			tech: ["React", "TailwindCSS", "Three JS"],
 			github: "#",
-			live: "https://thuluji-website.vercel.app/",
+			live: "https://thuluji.com",
 			underDevelopment: true,
 			underNDA: true,
 		},

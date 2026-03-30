@@ -31,6 +31,28 @@ const Projects = () => {
 			underNDA: true,
 		},
 		{
+			title: "Green Future",
+			description:
+				"Platform supporting student-led environmental clubs in schools, enabling peer-to-peer sustainability education and conservation projects across communities.",
+			image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500&auto=format&fit=crop&q=60",
+			tech: ["React", "PHP", "TailwindCSS", "Wordpress"],
+			github: "#",
+			live: "https://green-future.club/",
+			underDevelopment: false,
+			underNDA: true,
+		},
+		{
+			title: "Free the Girl",
+			description:
+				"NGO platform empowering girls through menstrual health education and sanitary pad distribution, reaching 3,200+ students across 70+ schools in Nakuru.",
+			image: "https://freethegirl.org/media/girls%20happy%20for%20receiving%20their%20pads.jpeg",
+			tech: ["React", "Node.js", "TailwindCSS"],
+			github: "#",
+			live: "https://freethegirl.org/",
+			underDevelopment: false,
+			underNDA: true,
+		},
+		{
 			title: "Mimi Fitness",
 			description:
 				"Full-stack gym and fitness center platform with class scheduling, membership management, and community engagement features.",
@@ -96,28 +118,7 @@ const Projects = () => {
 			underDevelopment: false,
 			underNDA: true,
 		},
-		{
-			title: "Green Future",
-			description:
-				"Platform supporting student-led environmental clubs in schools, enabling peer-to-peer sustainability education and conservation projects across communities.",
-			image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500&auto=format&fit=crop&q=60",
-			tech: ["React", "PHP", "TailwindCSS", "Wordpress"],
-			github: "#",
-			live: "https://green-future.club/",
-			underDevelopment: false,
-			underNDA: true,
-		},
-		{
-			title: "Free the Girl",
-			description:
-				"NGO platform empowering girls through menstrual health education and sanitary pad distribution, reaching 3,200+ students across 70+ schools in Nakuru.",
-			image: "https://freethegirl.org/media/girls%20happy%20for%20receiving%20their%20pads.jpeg",
-			tech: ["React", "Node.js", "TailwindCSS"],
-			github: "#",
-			live: "https://freethegirl.org/",
-			underDevelopment: false,
-			underNDA: true,
-		},
+
 		{
 			title: "AI-Powered HFT Trading",
 			description:

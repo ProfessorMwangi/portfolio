@@ -23,7 +23,7 @@ const Projects = () => {
 			title: "Thuluji",
 			description:
 				"Thuluji delivers advanced biometric access control, smart surveillance, and workforce management solutions powered by ZKTeco technology.",
-			image: "https://thuluji-website.vercel.app/thuluthi-logo.png",
+			image: "https://thuluji.com/thuluthi-logo.png",
 			tech: ["React", "TailwindCSS", "Three JS"],
 			github: "#",
 			live: "https://thuluji.com",

@@ -77,7 +77,7 @@ const Projects = () => {
 		{
 			title: "Gigastream",
 			description:
-				"Gigastream Media Tech Ltd is a Kenyan-based advertising and innovation communications agency specializing in Out-of-Home (OOH) and Digital-Out-of-Home (DOOH) advertising solutions. With a focus on leveraging cutting- edge technology and data - driven strategies, Gigastream Media Tech Ltd delivers impactful advertising campaigns that engage audiences across various platforms, including digital billboards, interactive displays, and mobile applications.The company is committed to providing innovative advertising solutions that drive brand awareness and customer engagement in the dynamic Kenyan market.",
+				"Gigastream Media Tech Ltd is a Kenyan-based advertising and innovation communications agency specializing in Out-of-Home (OOH) and Digital-Out-of-Home (DOOH) advertising solutions.",
 			image: "https://res.cloudinary.com/dipqldzry/image/upload/v1745561376/mastercard-dhow_yxkoeu.jpg",
 			tech: ["React", "Three JS", "TailwindCSS"],
 			live: "https://gigastreammedia.com",
